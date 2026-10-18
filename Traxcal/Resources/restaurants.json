@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "note": "Approximate values from publicly posted restaurant nutrition information. n = [calories, protein g, carbs g, fat g, fiber g, sugar g, saturated fat g, sodium mg, (caffeine mg)]",
+  "brands": [
+    {
+      "name": "McDonald's",
+      "aliases": ["mcdonalds", "mcd", "mickey d", "maccas", "golden arches"],
+      "items": [
+        ["Big Mac", "1 sandwich", 219, [590, 25, 46, 34, 3, 9, 11, 1050]],
+        ["Quarter Pounder with Cheese", "1 sandwich", 202, [520, 30, 42, 26, 2, 10, 12, 1140]],
+        ["Double Quarter Pounder with Cheese", "1 sandwich", 280, [740, 48, 43, 42, 2, 10, 20, 1360]],
+        ["Cheeseburger", "1 sandwich", 114, [300, 15, 32, 13, 1, 7, 6, 720]],
+        ["Double Cheeseburger", "1 sandwich", 165, [450, 25, 34, 24, 1, 7, 11, 1110]],
+        ["Hamburger", "1 sandwich", 100, [250, 12, 31, 9, 1, 6, 3.5, 510]],
+        ["McDouble", "1 sandwich", 151, [400, 22, 33, 20, 1, 7, 9, 920]],
+        ["McChicken", "1 sandwich", 147, [400, 14, 40, 21, 1, 5, 3.5, 560]],
+        ["McCrispy", "1 sandwich", 200, [470, 26, 46, 20, 2, 9, 3.5, 1140]],
+        ["Spicy McCrispy", "1 sandwich", 210, [530, 26, 48, 26, 2, 10, 4, 1260]],
+        ["Filet-O-Fish", "1 sandwich", 142, [390, 16, 39, 19, 2, 5, 4, 560]],
+        ["Chicken McNuggets (6 pc)", "6 pieces", 96, [250, 14, 15, 15, 1, 0, 2.5, 500]],
+        ["Chicken McNuggets (10 pc)", "10 pieces", 160, [410, 23, 26, 24, 1, 0, 4, 840]],
+        ["Chicken McNuggets (20 pc)", "20 pieces", 320, [830, 46, 51, 49, 3, 0, 8, 1680]],
+        ["French Fries (Small)", "small", 71, [230, 3, 31, 11, 3, 0, 1.5, 180]],
+        ["French Fries (Medium)", "medium", 111, [320, 5, 43, 15, 4, 0, 2, 260]],
+        ["French Fries (Large)", "large", 150, [480, 7, 65, 23, 6, 0, 3, 400]],
+        ["Egg McMuffin", "1 sandwich", 137, [310, 17, 30, 13, 2, 3, 6, 770]],
+        ["Sausage McMuffin with Egg", "1 sandwich", 165, [480, 20, 30, 31, 2, 2, 12, 830]],
+        ["Bacon, Egg & Cheese Biscuit", "1 sandwich", 150, [460, 18, 39, 26, 2, 3, 13, 1410]],
+        ["Sausage McGriddles", "1 sandwich", 141, [430, 11, 44, 24, 2, 15, 9, 1030]],
+        ["Hotcakes", "3 hotcakes", 151, [300, 8, 52, 8, 2, 12, 2, 590]],
+        ["Hotcakes and Sausage", "1 order", 228, [580, 15, 101, 15, 2, 45, 6, 790]],
+        ["Hash Browns", "1 hash brown", 53, [140, 1, 16, 8, 2, 0, 1, 310]],
+        ["Apple Pie", "1 pie", 77, [230, 2, 33, 11, 4, 13, 6, 100]],
+        ["McFlurry with OREO Cookies", "regular", 285, [510, 12, 80, 16, 1, 64, 8, 280]],
+        ["McFlurry with M&M's", "regular", 285, [640, 14, 96, 21, 1, 83, 14, 210]],
+        ["Vanilla Cone", "1 cone", 90, [200, 5, 32, 5, 0, 24, 3, 80]],
+        ["Chocolate Shake (Medium)", "medium", 500, [630, 13, 107, 17, 1, 89, 11, 380]],
+        ["Coca-Cola (Medium)", "21 fl oz", 620, [200, 0, 55, 0, 0, 55, 0, 15]],
+        ["Iced Coffee (Medium)", "medium", 470, [180, 2, 30, 7, 0, 29, 4.5, 75, 140]],
+        ["Caramel Frappé (Medium)", "medium", 470, [510, 8, 74, 21, 0, 69, 13, 160, 105]]
+      ]
+    },
+    {
+      "name": "Chipotle",
+      "aliases": ["chipotle mexican grill", "chipotle bowl", "chipotle burrito"],
+      "items": [
+        ["Chips", "1 bag", 113, [540, 7, 73, 25, 7, 0, 3.5, 390]],
+        ["Chips & Guacamole", "1 order", 226, [770, 9, 81, 47, 13, 2, 7, 765]],
+        ["Chips & Queso Blanco", "1 order", 226, [780, 17, 81, 43, 8, 4, 16, 1180]],
+        ["Kid's Quesadilla", "1 quesadilla", 120, [330, 15, 26, 18, 1, 1, 9, 680]]
+      ]
+    },
+    {
+      "name": "Shake Shack",
+      "aliases": ["shakeshack", "shack"],
+      "items": [
+        ["ShackBurger (Single)", "1 burger", 200, [500, 29, 26, 30, 0, 6, 13, 1260]],
+        ["ShackBurger (Double)", "1 burger", 300, [760, 51, 27, 48, 0, 6, 22, 1700]],
+        ["SmokeShack (Single)", "1 burger", 215, [570, 32, 25, 37, 1, 7, 15, 1530]],
+        ["Shack Stack", "1 burger", 330, [770, 37, 48, 47, 1, 7, 20, 1820]],
+        ["Avocado Bacon Burger", "1 burger", 250, [610, 34, 27, 40, 3, 6, 15, 1420]],
+        ["Hamburger (Single)", "1 burger", 160, [370, 24, 24, 20, 0, 5, 8, 800]],
+        ["Chicken Shack", "1 sandwich", 230, [550, 33, 45, 27, 2, 7, 6, 1350]],
+        ["Avocado Bacon Chicken", "1 sandwich", 270, [640, 39, 47, 33, 4, 7, 8, 1590]],
+        ["Chicken Bites (6 pc)", "6 pieces", 120, [300, 20, 14, 18, 1, 1, 3, 690]],
+        ["Fries", "1 order", 150, [470, 6, 63, 22, 7, 0, 4, 570]],
+        ["Cheese Fries", "1 order", 220, [710, 13, 70, 42, 7, 3, 14, 1240]],
+        ["Shack-cago Dog", "1 hot dog", 180, [480, 17, 37, 30, 3, 9, 11, 1800]],
+        ["Vanilla Shake", "regular", 450, [680, 16, 77, 34, 0, 76, 22, 400]],
+        ["Chocolate Shake", "regular", 450, [750, 17, 87, 38, 2, 82, 24, 470]],
+        ["Black & White Shake", "regular", 450, [770, 16, 89, 39, 1, 84, 25, 460]],
+        ["Concrete (Vanilla Custard)", "single", 250, [490, 11, 52, 27, 0, 47, 17, 220]],
+        ["Shack Lemonade", "regular", 590, [190, 0, 48, 0, 0, 46, 0, 15]]
+      ]
+    },
+    {
+      "name": "Chick-fil-A",
+      "aliases": ["chickfila", "chick fil a", "cfa"],
+      "items": [
+        ["Chicken Sandwich", "1 sandwich", 183, [420, 29, 41, 18, 1, 6, 4, 1460]],
+        ["Spicy Chicken Sandwich", "1 sandwich", 196, [450, 28, 42, 19, 2, 6, 4, 1620]],
+        ["Deluxe Chicken Sandwich", "1 sandwich", 236, [500, 31, 44, 22, 2, 7, 5, 1600]],
+        ["Grilled Chicken Sandwich", "1 sandwich", 245, [390, 28, 44, 11, 4, 11, 2, 770]],
+        ["Chicken Nuggets (8 ct)", "8 nuggets", 113, [250, 27, 11, 11, 0, 1, 2.5, 1210]],
+        ["Chicken Nuggets (12 ct)", "12 nuggets", 170, [380, 40, 16, 17, 0, 1, 4, 1820]],
+        ["Grilled Nuggets (8 ct)", "8 nuggets", 108, [130, 25, 1, 3, 0, 1, 1, 440]],
+        ["Grilled Nuggets (12 ct)", "12 nuggets", 162, [200, 38, 2, 4.5, 0, 1, 1, 660]],
+        ["Chick-n-Strips (3 ct)", "3 strips", 136, [310, 29, 16, 14, 1, 1, 3, 1000]],
+        ["Waffle Potato Fries (Medium)", "medium", 125, [420, 5, 45, 24, 5, 1, 4, 240]],
+        ["Waffle Potato Fries (Large)", "large", 156, [520, 6, 56, 30, 6, 1, 5, 300]],
+        ["Mac & Cheese (Medium)", "medium", 230, [450, 20, 29, 28, 2, 3, 15, 1190]],
+        ["Cobb Salad with Nuggets", "1 salad", 409, [830, 42, 39, 59, 5, 12, 13, 2180]],
+        ["Chick-fil-A Chicken Biscuit", "1 biscuit", 146, [460, 19, 45, 23, 2, 6, 8, 1510]],
+        ["Chick-n-Minis (4 ct)", "4 minis", 151, [360, 20, 41, 13, 2, 8, 3.5, 1140]],
+        ["Chick-fil-A Sauce", "1 packet", 28, [140, 0, 7, 13, 0, 6, 2, 170]],
+        ["Polynesian Sauce", "1 packet", 28, [110, 0, 13, 6, 0, 13, 1, 210]],
+        ["Cookies & Cream Milkshake (Small)", "small", 400, [630, 13, 90, 25, 1, 85, 15, 470]],
+        ["Frosted Lemonade (Small)", "small", 400, [330, 7, 63, 6, 0, 61, 4, 180]],
+        ["Lemonade (Medium)", "medium", 590, [220, 0, 58, 0, 0, 55, 0, 10]],
+        ["Chocolate Chunk Cookie", "1 cookie", 64, [370, 5, 49, 17, 2, 29, 9, 220]]
+      ]
+    },
+    {
+      "name": "Taco Bell",
+      "aliases": ["tacobell", "tbell"],
+      "items": [
+        ["Crunchwrap Supreme", "1 crunchwrap", 254, [530, 16, 71, 21, 6, 6, 6, 1200]],
+        ["Crunchy Taco", "1 taco", 78, [170, 8, 13, 10, 3, 1, 3.5, 300]],
+        ["Crunchy Taco Supreme", "1 taco", 92, [190, 8, 15, 11, 3, 2, 5, 320]],
+        ["Soft Taco", "1 taco", 99, [180, 9, 18, 8, 3, 1, 3.5, 500]],
+        ["Doritos Locos Tacos", "1 taco", 78, [170, 8, 13, 9, 3, 1, 3.5, 360]],
+        ["Chalupa Supreme (Beef)", "1 chalupa", 153, [350, 13, 30, 20, 4, 3, 5, 560]],
+        ["Cheesy Gordita Crunch", "1 gordita", 153, [500, 20, 41, 28, 5, 4, 10, 850]],
+        ["Mexican Pizza", "1 pizza", 213, [540, 20, 46, 30, 7, 3, 9, 850]],
+        ["Chicken Quesadilla", "1 quesadilla", 184, [520, 26, 37, 28, 3, 4, 13, 1250]],
+        ["Steak Quesadilla", "1 quesadilla", 184, [520, 26, 37, 28, 3, 3, 13, 1270]],
+        ["Bean Burrito", "1 burrito", 198, [350, 13, 54, 9, 9, 3, 3.5, 1000]],
+        ["Burrito Supreme (Beef)", "1 burrito", 248, [390, 16, 51, 14, 8, 4, 7, 1090]],
+        ["Beefy 5-Layer Burrito", "1 burrito", 245, [490, 18, 63, 18, 8, 4, 7, 1250]],
+        ["Cheesy Bean and Rice Burrito", "1 burrito", 198, [420, 9, 55, 18, 6, 3, 4.5, 860]],
+        ["Chicken Power Menu Bowl", "1 bowl", 397, [470, 26, 49, 19, 8, 3, 7, 1190]],
+        ["Nachos BellGrande", "1 order", 308, [740, 16, 82, 38, 13, 5, 7, 1050]],
+        ["Nacho Fries", "regular", 113, [320, 4, 35, 18, 3, 0, 1.5, 680]],
+        ["Cinnamon Twists", "1 order", 35, [170, 1, 26, 7, 1, 10, 0, 210]],
+        ["Baja Blast (Medium)", "30 fl oz", 890, [290, 0, 77, 0, 0, 77, 0, 75, 75]]
+      ]
+    },
+    {
+      "name": "Wendy's",
+      "aliases": ["wendys"],
+      "items": [
+        ["Dave's Single", "1 burger", 278, [590, 29, 39, 37, 2, 9, 14, 1250]],
+        ["Dave's Double", "1 burger", 375, [860, 50, 40, 56, 2, 9, 24, 1650]],
+        ["Baconator", "1 burger", 304, [960, 59, 38, 66, 1, 8, 26, 1870]],
+        ["Jr. Bacon Cheeseburger", "1 burger", 147, [370, 19, 26, 21, 1, 6, 8, 700]],
+        ["Jr. Cheeseburger", "1 burger", 117, [290, 14, 26, 14, 1, 6, 6, 610]],
+        ["Spicy Chicken Sandwich", "1 sandwich", 224, [490, 29, 49, 20, 3, 6, 3.5, 1410]],
+        ["Classic Chicken Sandwich", "1 sandwich", 221, [490, 28, 49, 21, 2, 6, 3.5, 1250]],
+        ["Chicken Nuggets (10 pc)", "10 pieces", 150, [420, 22, 26, 26, 1, 0, 5, 920]],
+        ["Spicy Chicken Nuggets (10 pc)", "10 pieces", 150, [430, 22, 25, 27, 2, 0, 5, 1000]],
+        ["French Fries (Medium)", "medium", 132, [350, 5, 47, 16, 4, 0, 2.5, 330]],
+        ["Baked Potato (Plain)", "1 potato", 284, [270, 7, 61, 0, 7, 3, 0, 40]],
+        ["Chili (Small)", "small", 227, [240, 17, 23, 9, 6, 6, 3.5, 900]],
+        ["Chocolate Frosty (Small)", "small", 312, [350, 9, 56, 9, 0, 47, 6, 200]],
+        ["Vanilla Frosty (Small)", "small", 312, [340, 9, 56, 9, 0, 47, 6, 200]],
+        ["Apple Pecan Salad (Full)", "1 salad", 370, [550, 38, 37, 29, 5, 29, 9, 1250]]
+      ]
+    },
+    {
+      "name": "Burger King",
+      "aliases": ["bk", "burgerking"],
+      "items": [
+        ["Whopper", "1 burger", 290, [670, 31, 51, 39, 2, 12, 12, 1010]],
+        ["Whopper with Cheese", "1 burger", 315, [760, 35, 52, 46, 2, 12, 17, 1430]],
+        ["Double Whopper", "1 burger", 373, [920, 49, 51, 57, 2, 12, 20, 1080]],
+        ["Whopper Jr.", "1 burger", 150, [330, 15, 30, 17, 1, 7, 5, 470]],
+        ["Impossible Whopper", "1 burger", 270, [630, 25, 58, 34, 4, 12, 11, 1080]],
+        ["Bacon King", "1 burger", 330, [1150, 61, 49, 79, 2, 11, 31, 2150]],
+        ["Original Chicken Sandwich", "1 sandwich", 219, [670, 26, 52, 40, 3, 6, 7, 1170]],
+        ["Royal Crispy Chicken", "1 sandwich", 230, [600, 30, 49, 31, 2, 8, 5, 1320]],
+        ["Chicken Fries (9 pc)", "9 pieces", 128, [280, 19, 18, 15, 1, 0, 2.5, 860]],
+        ["Chicken Nuggets (8 pc)", "8 pieces", 120, [380, 18, 22, 24, 1, 0, 4, 680]],
+        ["French Fries (Medium)", "medium", 116, [380, 5, 53, 17, 4, 0, 3, 570]],
+        ["Onion Rings (Medium)", "medium", 91, [320, 4, 39, 16, 3, 4, 3, 590]],
+        ["Croissan'wich Sausage, Egg & Cheese", "1 sandwich", 163, [500, 19, 26, 36, 1, 4, 13, 1010]],
+        ["Hershey's Sundae Pie", "1 slice", 79, [300, 3, 31, 18, 1, 21, 11, 190]]
+      ]
+    },
+    {
+      "name": "Subway",
+      "aliases": ["subway sandwich", "sub"],
+      "items": [
+        ["Turkey Breast 6\"", "6-inch sub", 220, [280, 18, 44, 3.5, 5, 6, 1, 760]],
+        ["Italian B.M.T. 6\"", "6-inch sub", 226, [410, 19, 43, 18, 3, 6, 7, 1210]],
+        ["Meatball Marinara 6\"", "6-inch sub", 285, [460, 20, 54, 18, 6, 12, 8, 1080]],
+        ["Steak & Cheese 6\"", "6-inch sub", 240, [340, 25, 43, 9, 4, 6, 4, 1030]],
+        ["Oven-Roasted Turkey & Ham 6\"", "6-inch sub", 230, [300, 19, 44, 5, 5, 6, 1.5, 920]],
+        ["Tuna 6\"", "6-inch sub", 240, [460, 19, 41, 25, 5, 6, 4.5, 690]],
+        ["Spicy Italian 6\"", "6-inch sub", 220, [460, 19, 43, 25, 3, 6, 9, 1310]],
+        ["Rotisserie-Style Chicken 6\"", "6-inch sub", 240, [320, 26, 44, 5, 5, 6, 1.5, 620]],
+        ["Veggie Delite 6\"", "6-inch sub", 160, [210, 9, 41, 2, 5, 5, 0, 340]],
+        ["Chicken & Bacon Ranch Footlong", "footlong", 540, [1080, 66, 90, 50, 8, 12, 18, 2700]],
+        ["Chocolate Chip Cookie", "1 cookie", 45, [210, 2, 29, 10, 1, 17, 5, 140]]
+      ]
+    },
+    {
+      "name": "Starbucks",
+      "aliases": ["sbux", "starbs"],
+      "items": [
+        ["Caffè Latte (Grande, 2%)", "16 fl oz", 473, [190, 13, 19, 7, 0, 18, 4.5, 170, 150]],
+        ["Oat Milk Latte (Grande)", "16 fl oz", 473, [220, 4, 32, 9, 2, 16, 1, 210, 150]],
+        ["Caramel Macchiato (Grande)", "16 fl oz", 473, [250, 10, 35, 7, 0, 33, 4.5, 150, 150]],
+        ["Cappuccino (Grande)", "16 fl oz", 473, [140, 9, 14, 5, 0, 12, 3, 115, 150]],
+        ["Caffè Mocha (Grande)", "16 fl oz", 473, [370, 14, 43, 15, 4, 35, 9, 150, 175]],
+        ["White Chocolate Mocha (Grande)", "16 fl oz", 473, [430, 15, 54, 18, 0, 53, 12, 260, 150]],
+        ["Pumpkin Spice Latte (Grande)", "16 fl oz", 473, [390, 14, 52, 14, 0, 50, 8, 240, 150]],
+        ["Iced Brown Sugar Oatmilk Shaken Espresso (Grande)", "16 fl oz", 473, [120, 2, 20, 3, 1, 13, 0, 120, 255]],
+        ["Cold Brew (Grande)", "16 fl oz", 473, [5, 0, 0, 0, 0, 0, 0, 15, 205]],
+        ["Vanilla Sweet Cream Cold Brew (Grande)", "16 fl oz", 473, [110, 1, 14, 5, 0, 14, 3.5, 25, 185]],
+        ["Caramel Frappuccino (Grande)", "16 fl oz", 473, [380, 5, 54, 16, 0, 53, 10, 230, 90]],
+        ["Mocha Frappuccino (Grande)", "16 fl oz", 473, [370, 5, 54, 15, 2, 51, 10, 220, 100]],
+        ["Strawberry Açaí Refresher (Grande)", "16 fl oz", 473, [100, 0, 24, 0, 0, 20, 0, 10, 45]],
+        ["Pink Drink (Grande)", "16 fl oz", 473, [140, 1, 27, 2.5, 1, 24, 2, 65, 45]],
+        ["Chai Tea Latte (Grande)", "16 fl oz", 473, [240, 8, 45, 4.5, 0, 42, 2, 115, 95]],
+        ["Matcha Latte (Grande)", "16 fl oz", 473, [240, 12, 34, 7, 1, 32, 4.5, 160, 80]],
+        ["Butter Croissant", "1 croissant", 68, [260, 5, 31, 14, 1, 6, 8, 330]],
+        ["Chocolate Croissant", "1 croissant", 77, [300, 5, 35, 17, 2, 13, 10, 230]],
+        ["Bacon, Gouda & Egg Sandwich", "1 sandwich", 128, [360, 18, 34, 18, 1, 2, 7, 770]],
+        ["Spinach, Feta & Egg White Wrap", "1 wrap", 156, [290, 20, 34, 8, 3, 5, 3.5, 840]],
+        ["Bacon & Gruyère Egg Bites", "2 bites", 130, [300, 19, 9, 20, 0, 2, 12, 680]],
+        ["Egg White & Roasted Red Pepper Egg Bites", "2 bites", 130, [170, 12, 11, 8, 0, 3, 5, 470]],
+        ["Blueberry Muffin", "1 muffin", 113, [360, 5, 52, 15, 1, 29, 3, 270]],
+        ["Cake Pop (Birthday)", "1 pop", 43, [160, 2, 23, 8, 0, 18, 4.5, 85]]
+      ]
+    },
+    {
+      "name": "Panera Bread",
+      "aliases": ["panera"],
+      "items": [
+        ["Broccoli Cheddar Soup (Cup)", "cup", 241, [230, 9, 17, 14, 2, 4, 8, 860]],
+        ["Broccoli Cheddar Soup (Bowl)", "bowl", 340, [360, 14, 25, 21, 3, 6, 13, 1330]],
+        ["Broccoli Cheddar Bread Bowl", "1 bread bowl", 650, [900, 33, 133, 25, 6, 8, 14, 2070]],
+        ["Mac & Cheese (Cup)", "cup", 177, [470, 18, 37, 28, 1, 4, 16, 1100]],
+        ["Chipotle Chicken Avocado Melt (Whole)", "whole", 380, [940, 52, 72, 49, 6, 7, 17, 2200]],
+        ["Bacon Turkey Bravo (Whole)", "whole", 400, [800, 51, 82, 30, 4, 13, 10, 2580]],
+        ["Fuji Apple Salad with Chicken (Whole)", "whole", 380, [570, 32, 31, 35, 5, 21, 7, 650]],
+        ["Green Goddess Cobb Salad with Chicken", "whole", 450, [530, 41, 26, 31, 8, 7, 7, 820]],
+        ["Caesar Salad with Chicken (Whole)", "whole", 330, [480, 39, 17, 29, 3, 3, 8, 830]],
+        ["Chocolate Chipper Cookie", "1 cookie", 92, [390, 4, 52, 19, 2, 31, 11, 290]],
+        ["Plain Bagel", "1 bagel", 99, [270, 9, 55, 1.5, 2, 4, 0, 460]]
+      ]
+    },
+    {
+      "name": "Five Guys",
+      "aliases": ["fiveguys", "5 guys"],
+      "items": [
+        ["Hamburger", "1 burger", 265, [840, 39, 39, 55, 2, 8, 25, 430]],
+        ["Cheeseburger", "1 burger", 303, [980, 47, 40, 62, 2, 9, 29, 1050]],
+        ["Little Hamburger", "1 burger", 190, [540, 23, 39, 31, 2, 8, 13, 380]],
+        ["Little Cheeseburger", "1 burger", 210, [610, 27, 39, 35, 2, 8, 16, 690]],
+        ["Bacon Cheeseburger", "1 burger", 317, [1060, 51, 40, 69, 2, 9, 32, 1310]],
+        ["Little Fries", "little", 227, [526, 8, 72, 23, 7, 1, 4, 531]],
+        ["Regular Fries", "regular", 411, [953, 13, 131, 41, 13, 1, 7, 962]],
+        ["Cajun Fries (Little)", "little", 227, [526, 8, 72, 23, 7, 1, 4, 1120]],
+        ["Hot Dog", "1 hot dog", 160, [545, 18, 40, 35, 2, 8, 15, 1130]],
+        ["Grilled Cheese", "1 sandwich", 120, [470, 11, 41, 26, 2, 8, 9, 715]],
+        ["Milkshake (Vanilla)", "regular", 450, [670, 12, 78, 35, 0, 77, 22, 330]]
+      ]
+    },
+    {
+      "name": "Panda Express",
+      "aliases": ["panda"],
+      "items": [
+        ["Orange Chicken", "1 entrée", 162, [490, 25, 51, 23, 2, 19, 5, 820]],
+        ["Beijing Beef", "1 entrée", 158, [470, 13, 46, 26, 1, 24, 5, 660]],
+        ["Broccoli Beef", "1 entrée", 153, [150, 9, 13, 7, 2, 7, 1.5, 520]],
+        ["Kung Pao Chicken", "1 entrée", 162, [320, 17, 15, 21, 2, 6, 3.5, 870]],
+        ["Grilled Teriyaki Chicken", "1 entrée", 170, [300, 36, 8, 13, 0, 8, 3.5, 530]],
+        ["Honey Walnut Shrimp", "1 entrée", 105, [430, 13, 32, 29, 2, 9, 5, 470]],
+        ["Mushroom Chicken", "1 entrée", 170, [220, 15, 10, 14, 1, 5, 3, 760]],
+        ["String Bean Chicken Breast", "1 entrée", 158, [210, 12, 13, 12, 4, 4, 2, 590]],
+        ["Black Pepper Angus Steak", "1 entrée", 160, [180, 19, 10, 7, 1, 5, 2, 750]],
+        ["Chow Mein", "1 side", 266, [510, 13, 80, 20, 6, 9, 3.5, 860]],
+        ["Fried Rice", "1 side", 266, [520, 11, 85, 16, 1, 3, 3, 850]],
+        ["White Steamed Rice", "1 side", 266, [380, 7, 87, 0, 0, 0, 0, 0]],
+        ["Super Greens", "1 side", 266, [90, 6, 10, 3, 5, 3, 0, 260]],
+        ["Chicken Egg Roll", "1 roll", 85, [200, 6, 20, 10, 2, 2, 3, 390]],
+        ["Cream Cheese Rangoon (3 pc)", "3 pieces", 70, [190, 5, 24, 8, 2, 1, 5, 180]]
+      ]
+    },
+    {
+      "name": "Sweetgreen",
+      "aliases": ["sweet green"],
+      "items": [
+        ["Harvest Bowl", "1 bowl", 440, [705, 37, 58, 37, 9, 10, 8, 1110]],
+        ["Kale Caesar", "1 salad", 330, [430, 35, 21, 24, 6, 3, 7, 780]],
+        ["Guacamole Greens", "1 salad", 380, [530, 32, 32, 32, 13, 4, 6, 870]],
+        ["Chicken Pesto Parm", "1 bowl", 420, [530, 38, 41, 25, 6, 5, 6, 1100]],
+        ["Fish Taco Bowl", "1 bowl", 430, [640, 30, 60, 32, 11, 6, 6, 1010]],
+        ["Super Green Goddess", "1 salad", 360, [410, 13, 42, 22, 13, 7, 3, 780]],
+        ["Crispy Rice Bowl", "1 bowl", 410, [645, 31, 52, 36, 7, 6, 5, 1190]]
+      ]
+    },
+    {
+      "name": "Popeyes",
+      "aliases": ["popeyes louisiana kitchen", "popeye's"],
+      "items": [
+        ["Classic Chicken Sandwich", "1 sandwich", 230, [700, 28, 50, 42, 2, 8, 14, 1440]],
+        ["Spicy Chicken Sandwich", "1 sandwich", 230, [700, 28, 50, 42, 2, 8, 14, 1470]],
+        ["Classic Tenders (3 pc)", "3 pieces", 170, [445, 37, 23, 22, 2, 0, 9, 1585]],
+        ["Classic Chicken Breast", "1 piece", 168, [380, 35, 16, 20, 1, 0, 8, 1230]],
+        ["Classic Chicken Thigh", "1 piece", 110, [280, 14, 9, 21, 1, 0, 8, 640]],
+        ["Cajun Fries (Regular)", "regular", 100, [260, 4, 33, 12, 3, 0, 5, 590]],
+        ["Biscuit", "1 biscuit", 60, [200, 3, 22, 11, 1, 2, 6, 460]],
+        ["Red Beans & Rice (Regular)", "regular", 156, [250, 8, 30, 11, 6, 1, 4, 620]],
+        ["Mashed Potatoes with Gravy (Regular)", "regular", 140, [110, 2, 18, 4, 1, 1, 1, 520]],
+        ["Mac & Cheese (Regular)", "regular", 140, [310, 12, 23, 19, 1, 4, 8, 960]]
+      ]
+    },
+    {
+      "name": "In-N-Out Burger",
+      "aliases": ["in n out", "innout", "in-n-out"],
+      "items": [
+        ["Double-Double", "1 burger", 330, [670, 37, 39, 41, 3, 10, 18, 1440]],
+        ["Double-Double Protein Style", "1 burger", 330, [520, 33, 11, 39, 3, 8, 17, 1160]],
+        ["Cheeseburger", "1 burger", 268, [480, 22, 39, 27, 3, 10, 10, 1000]],
+        ["Hamburger", "1 burger", 243, [360, 16, 37, 16, 3, 8, 4, 640]],
+        ["3x3", "1 burger", 440, [860, 52, 40, 55, 3, 10, 26, 1880]],
+        ["French Fries", "1 order", 117, [370, 6, 52, 15, 6, 0, 1.5, 250]],
+        ["Animal Style Fries", "1 order", 280, [750, 19, 54, 49, 6, 4, 17, 1350]],
+        ["Chocolate Shake", "15 fl oz", 425, [590, 16, 83, 29, 0, 66, 19, 350]],
+        ["Vanilla Shake", "15 fl oz", 425, [570, 16, 78, 30, 0, 64, 19, 330]]
+      ]
+    },
+    {
+      "name": "Domino's",
+      "aliases": ["dominos", "domino"],
+      "items": [
+        ["Hand Tossed Cheese Pizza (Medium)", "1 slice (1/8)", 98, [210, 8, 26, 8, 1, 3, 3.5, 410]],
+        ["Hand Tossed Pepperoni Pizza (Medium)", "1 slice (1/8)", 104, [240, 9, 26, 10, 1, 3, 4.5, 500]],
+        ["Hand Tossed Cheese Pizza (Large)", "1 slice (1/8)", 132, [290, 12, 36, 11, 2, 4, 5, 580]],
+        ["Hand Tossed Pepperoni Pizza (Large)", "1 slice (1/8)", 140, [330, 13, 36, 14, 2, 4, 6, 710]],
+        ["Thin Crust Cheese Pizza (Large)", "1 slice (1/8)", 92, [220, 9, 18, 12, 1, 3, 5, 410]],
+        ["Brooklyn Style Pepperoni (Large)", "1 slice (1/8)", 112, [300, 12, 29, 15, 1, 3, 6, 660]],
+        ["Boneless Chicken (8 pc)", "8 pieces", 240, [610, 33, 47, 32, 2, 1, 6, 1910]],
+        ["Parmesan Bread Bites (8 pc)", "8 pieces", 110, [400, 9, 46, 19, 2, 3, 4, 560]],
+        ["Cinnamon Bread Twists (8 pc)", "8 pieces", 150, [570, 9, 69, 28, 2, 23, 5, 400]]
+      ]
+    },
+    {
+      "name": "Pizza Hut",
+      "aliases": ["pizzahut"],
+      "items": [
+        ["Original Pan Cheese Pizza (Medium)", "1 slice", 100, [250, 10, 26, 11, 1, 2, 4.5, 470]],
+        ["Original Pan Pepperoni Pizza (Medium)", "1 slice", 105, [260, 10, 26, 12, 1, 2, 4.5, 530]],
+        ["Thin 'N Crispy Pepperoni (Large)", "1 slice", 90, [240, 10, 21, 13, 1, 2, 5, 580]],
+        ["Breadstick", "1 breadstick", 50, [140, 4, 18, 5, 1, 1, 1, 230]],
+        ["Bone-Out Wings (8 pc, Naked)", "8 pieces", 220, [560, 32, 40, 30, 2, 0, 5, 1640]]
+      ]
+    },
+    {
+      "name": "KFC",
+      "aliases": ["kentucky fried chicken"],
+      "items": [
+        ["Original Recipe Chicken Breast", "1 piece", 161, [390, 39, 11, 21, 2, 0, 4, 1190]],
+        ["Original Recipe Drumstick", "1 piece", 60, [130, 12, 4, 8, 0, 0, 1.5, 430]],
+        ["Extra Crispy Chicken Breast", "1 piece", 172, [530, 35, 18, 35, 0, 1, 6, 1150]],
+        ["KFC Chicken Sandwich", "1 sandwich", 210, [650, 34, 49, 35, 2, 6, 6, 1260]],
+        ["Famous Bowl", "1 bowl", 450, [740, 26, 81, 35, 6, 3, 6, 2350]],
+        ["Chicken Pot Pie", "1 pie", 380, [720, 22, 60, 41, 7, 7, 25, 1750]],
+        ["Mashed Potatoes & Gravy (Individual)", "individual", 151, [130, 3, 19, 4.5, 1, 1, 1, 520]],
+        ["Mac & Cheese (Individual)", "individual", 136, [140, 5, 17, 6, 0, 2, 2.5, 510]],
+        ["Biscuit", "1 biscuit", 57, [180, 4, 22, 8, 1, 2, 6, 520]],
+        ["Coleslaw (Individual)", "individual", 130, [170, 1, 14, 12, 2, 12, 2, 170]]
+      ]
+    },
+    {
+      "name": "Dunkin'",
+      "aliases": ["dunkin donuts", "dunkin", "dd"],
+      "items": [
+        ["Glazed Donut", "1 donut", 75, [240, 4, 33, 11, 1, 13, 5, 270]],
+        ["Boston Kreme Donut", "1 donut", 93, [300, 4, 40, 14, 1, 18, 6, 310]],
+        ["Chocolate Frosted Donut", "1 donut", 75, [270, 4, 34, 13, 1, 15, 6, 280]],
+        ["Munchkins Glazed (5 pc)", "5 pieces", 71, [280, 3, 31, 16, 1, 15, 7, 250]],
+        ["Bacon, Egg & Cheese on Croissant", "1 sandwich", 160, [550, 20, 34, 37, 1, 4, 15, 890]],
+        ["Sausage, Egg & Cheese on English Muffin", "1 sandwich", 170, [500, 21, 31, 32, 2, 2, 12, 1100]],
+        ["Wake-Up Wrap (Bacon, Egg & Cheese)", "1 wrap", 85, [220, 10, 14, 13, 0, 0, 5, 590]],
+        ["Hash Browns (6 pc)", "6 pieces", 77, [130, 1, 15, 7, 2, 0, 1, 330]],
+        ["Iced Coffee with Cream & Sugar (Medium)", "24 fl oz", 710, [200, 2, 34, 6, 0, 33, 4, 65, 297]],
+        ["Hot Coffee (Medium, Black)", "14 fl oz", 414, [5, 0, 0, 0, 0, 0, 0, 10, 210]],
+        ["Latte (Medium, Whole Milk)", "14 fl oz", 414, [170, 9, 14, 9, 0, 13, 5, 130, 166]],
+        ["Frozen Chocolate (Medium)", "24 fl oz", 710, [770, 12, 136, 20, 2, 125, 19, 450]]
+      ]
+    },
+    {
+      "name": "Raising Cane's",
+      "aliases": ["canes", "raising canes"],
+      "items": [
+        ["Chicken Finger", "1 finger", 45, [130, 13, 6, 6, 0, 0, 1, 330]],
+        ["The Box Combo", "1 combo (no drink)", 600, [1320, 59, 112, 70, 7, 3, 13, 2640]],
+        ["3 Finger Combo", "1 combo (no drink)", 450, [1000, 44, 91, 52, 6, 3, 9, 1950]],
+        ["Crinkle-Cut Fries (Regular)", "regular", 125, [390, 5, 53, 18, 6, 0, 3, 30]],
+        ["Cane's Sauce", "1 cup", 43, [190, 0, 6, 19, 0, 4, 3, 450]],
+        ["Texas Toast", "1 slice", 45, [150, 4, 19, 7, 1, 3, 2, 240]],
+        ["Coleslaw", "1 side", 113, [100, 1, 10, 6, 2, 8, 1, 160]]
+      ]
+    },
+    {
+      "name": "Wingstop",
+      "aliases": ["wing stop"],
+      "items": [
+        ["Classic Wings Original Hot (6 pc)", "6 wings", 180, [470, 40, 0, 34, 0, 0, 9, 1580]],
+        ["Classic Wings Lemon Pepper (6 pc)", "6 wings", 180, [560, 40, 0, 44, 0, 0, 11, 1250]],
+        ["Boneless Wings Plain (6 pc)", "6 pieces", 180, [480, 30, 36, 24, 2, 0, 4, 1240]],
+        ["Chicken Tenders Plain (3 pc)", "3 tenders", 150, [370, 36, 15, 18, 1, 0, 3, 960]],
+        ["Seasoned Fries (Regular)", "regular", 170, [450, 7, 59, 21, 5, 1, 3.5, 820]],
+        ["Ranch Dip", "1 cup", 60, [310, 1, 3, 33, 0, 2, 5, 400]]
+      ]
+    },
+    {
+      "name": "Jersey Mike's",
+      "aliases": ["jersey mikes"],
+      "items": [
+        ["#13 Original Italian (Regular, Mike's Way)", "regular", 340, [800, 38, 64, 43, 4, 7, 15, 2520]],
+        ["#7 Turkey & Provolone (Regular, Mike's Way)", "regular", 330, [670, 38, 63, 29, 4, 7, 10, 1820]],
+        ["#17 Mike's Famous Philly (Regular)", "regular", 340, [710, 48, 59, 31, 3, 6, 13, 1580]],
+        ["#43 Chipotle Cheese Steak (Regular)", "regular", 350, [830, 46, 61, 45, 3, 7, 14, 1580]]
+      ]
+    },
+    {
+      "name": "Cava",
+      "aliases": ["cava grill", "cava bowl"],
+      "items": [
+        ["Greek Chicken Bowl", "1 bowl", 450, [590, 43, 45, 28, 9, 6, 6, 1380]],
+        ["Harissa Avocado Bowl", "1 bowl", 470, [820, 40, 52, 51, 13, 6, 9, 1600]],
+        ["Steak + Harissa Bowl", "1 bowl", 470, [690, 38, 50, 39, 10, 5, 10, 1490]],
+        ["Chicken + Rice Bowl", "1 bowl", 450, [680, 41, 63, 30, 7, 5, 6, 1480]],
+        ["Spicy Lamb + Avocado Bowl", "1 bowl", 480, [880, 39, 47, 61, 12, 5, 16, 1580]],
+        ["Pita Chips", "1 bag", 57, [270, 5, 33, 13, 1, 1, 1.5, 290]]
+      ]
+    },
+    {
+      "name": "Dairy Queen",
+      "aliases": ["dq"],
+      "items": [
+        ["Oreo Blizzard (Medium)", "medium", 380, [810, 16, 121, 29, 2, 92, 15, 560]],
+        ["Reese's Peanut Butter Cup Blizzard (Medium)", "medium", 380, [960, 23, 117, 45, 3, 96, 19, 520]],
+        ["Vanilla Cone (Medium)", "medium", 213, [330, 8, 51, 9, 0, 38, 6, 160]],
+        ["Dipped Cone (Medium)", "medium", 234, [490, 8, 59, 24, 1, 47, 17, 180]],
+        ["Chicken Strip Basket (4 pc)", "4 pieces", 400, [1030, 37, 104, 52, 6, 3, 8, 2040]],
+        ["Original Cheeseburger", "1 burger", 200, [400, 20, 38, 18, 2, 9, 9, 870]]
+      ]
+    },
+    {
+      "name": "Sonic",
+      "aliases": ["sonic drive-in", "sonic drive in"],
+      "items": [
+        ["SuperSONIC Bacon Double Cheeseburger", "1 burger", 380, [1310, 60, 51, 97, 2, 14, 38, 2150]],
+        ["Sonic Cheeseburger", "1 burger", 230, [700, 30, 48, 42, 2, 12, 14, 1180]],
+        ["Tots (Medium)", "medium", 150, [380, 3, 40, 22, 4, 0, 4, 820]],
+        ["Cherry Limeade (Medium)", "medium", 1000, [270, 0, 70, 0, 0, 69, 0, 55]],
+        ["Corn Dog", "1 corn dog", 75, [210, 6, 23, 11, 1, 6, 3, 480]]
+      ]
+    },
+    {
+      "name": "Arby's",
+      "aliases": ["arbys"],
+      "items": [
+        ["Classic Roast Beef", "1 sandwich", 154, [360, 23, 37, 14, 2, 5, 5, 970]],
+        ["Beef 'n Cheddar Classic", "1 sandwich", 195, [450, 23, 45, 20, 2, 9, 6, 1310]],
+        ["Curly Fries (Medium)", "medium", 128, [430, 5, 52, 23, 4, 0, 3, 960]],
+        ["Classic Chicken Sandwich", "1 sandwich", 220, [570, 30, 54, 26, 2, 7, 4.5, 1310]],
+        ["Jamocha Shake (Medium)", "medium", 480, [690, 15, 109, 21, 0, 97, 13, 480]]
+      ]
+    },
+    {
+      "name": "Jack in the Box",
+      "aliases": ["jack in box", "jitb"],
+      "items": [
+        ["Jumbo Jack", "1 burger", 260, [570, 25, 45, 32, 2, 10, 11, 900]],
+        ["Sourdough Jack", "1 burger", 245, [710, 33, 37, 49, 2, 5, 17, 1270]],
+        ["Tacos (2)", "2 tacos", 145, [350, 11, 32, 19, 4, 2, 5, 560]],
+        ["Curly Fries (Medium)", "medium", 125, [430, 5, 53, 22, 5, 0, 3.5, 1000]]
+      ]
+    }
+  ]
+}

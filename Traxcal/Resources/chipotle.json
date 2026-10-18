@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "note": "Per standard (Normal) serving, approximate values from Chipotle's published nutrition calculator. n = [calories, protein g, carbs g, fat g, fiber g, sugar g, saturated fat g, sodium mg]",
+  "entrees": [
+    {"id": "bowl", "name": "Burrito Bowl", "symbol": "takeoutbag.and.cup.and.straw.fill", "base": null},
+    {"id": "burrito", "name": "Burrito", "symbol": "burrito", "base": "flour-tortilla"},
+    {"id": "salad", "name": "Salad", "symbol": "leaf.fill", "base": "supergreens"},
+    {"id": "tacos", "name": "Tacos (3)", "symbol": "fork.knife", "base": "crispy-corn-tortillas"},
+    {"id": "quesadilla", "name": "Quesadilla", "symbol": "circle.lefthalf.filled", "base": "quesadilla-tortilla"}
+  ],
+  "categories": [
+    {
+      "id": "base", "name": "Base", "selection": "multi", "hidden": true,
+      "items": [
+        {"id": "flour-tortilla", "name": "Flour Tortilla (Burrito)", "n": [320, 8, 50, 9, 3, 0, 1, 600]},
+        {"id": "crispy-corn-tortillas", "name": "Crispy Corn Tortillas (3)", "n": [210, 3, 30, 9, 3, 0, 1, 0]},
+        {"id": "soft-flour-tortillas", "name": "Soft Flour Tortillas (3)", "n": [240, 6, 39, 7, 3, 0, 1, 480]},
+        {"id": "quesadilla-tortilla", "name": "Quesadilla Tortilla + Cheese", "n": [550, 22, 51, 25, 3, 1, 12, 980]},
+        {"id": "supergreens", "name": "Supergreens Lettuce Blend", "n": [15, 1, 3, 0, 2, 1, 0, 15]}
+      ]
+    },
+    {
+      "id": "rice", "name": "Rice", "selection": "multi",
+      "items": [
+        {"id": "white-rice", "name": "Cilantro-Lime White Rice", "n": [210, 4, 40, 4, 1, 0, 0.5, 350]},
+        {"id": "brown-rice", "name": "Cilantro-Lime Brown Rice", "n": [210, 4, 36, 6, 2, 0, 1, 190]}
+      ]
+    },
+    {
+      "id": "beans", "name": "Beans", "selection": "multi",
+      "items": [
+        {"id": "black-beans", "name": "Black Beans", "n": [130, 8, 22, 1.5, 7, 2, 0, 210]},
+        {"id": "pinto-beans", "name": "Pinto Beans", "n": [130, 8, 21, 1.5, 8, 1, 0, 210]}
+      ]
+    },
+    {
+      "id": "protein", "name": "Protein", "selection": "multi",
+      "items": [
+        {"id": "chicken", "name": "Chicken", "n": [180, 32, 0, 7, 0, 0, 3, 310]},
+        {"id": "chicken-al-pastor", "name": "Chicken al Pastor", "n": [200, 23, 4, 11, 1, 2, 3, 580]},
+        {"id": "steak", "name": "Steak", "n": [150, 21, 1, 6, 1, 0, 2.5, 330]},
+        {"id": "barbacoa", "name": "Barbacoa", "n": [170, 24, 2, 7, 1, 0, 2.5, 530]},
+        {"id": "carnitas", "name": "Carnitas", "n": [210, 23, 0, 12, 0, 0, 7, 450]},
+        {"id": "sofritas", "name": "Sofritas", "n": [150, 8, 9, 10, 3, 5, 1.5, 560]},
+        {"id": "fajita-veggies", "name": "Fajita Veggies", "n": [20, 1, 5, 0, 1, 2, 0, 150]}
+      ]
+    },
+    {
+      "id": "salsa", "name": "Salsas", "selection": "multi",
+      "items": [
+        {"id": "fresh-tomato-salsa", "name": "Fresh Tomato Salsa", "n": [25, 0, 4, 0, 1, 1, 0, 550]},
+        {"id": "roasted-chili-corn-salsa", "name": "Roasted Chili-Corn Salsa", "n": [80, 3, 16, 1.5, 2, 4, 0, 330]},
+        {"id": "tomatillo-green-chili-salsa", "name": "Tomatillo-Green Chili Salsa", "n": [15, 0, 4, 0, 0, 2, 0, 260]},
+        {"id": "tomatillo-red-chili-salsa", "name": "Tomatillo-Red Chili Salsa", "n": [30, 0, 4, 0, 1, 0, 0, 500]}
+      ]
+    },
+    {
+      "id": "toppings", "name": "Toppings", "selection": "multi",
+      "items": [
+        {"id": "guacamole", "name": "Guacamole", "n": [230, 2, 8, 22, 6, 1, 3.5, 375]},
+        {"id": "queso-blanco", "name": "Queso Blanco", "n": [120, 5, 4, 9, 0, 1, 5, 250]},
+        {"id": "sour-cream", "name": "Sour Cream", "n": [110, 2, 2, 9, 0, 2, 7, 30]},
+        {"id": "cheese", "name": "Monterey Jack Cheese", "n": [110, 6, 1, 8, 0, 0, 5, 190]},
+        {"id": "romaine-lettuce", "name": "Romaine Lettuce", "n": [5, 0, 1, 0, 1, 0, 0, 0]},
+        {"id": "chipotle-honey-vinaigrette", "name": "Chipotle-Honey Vinaigrette", "n": [220, 1, 18, 16, 1, 12, 2.5, 850]}
+      ]
+    },
+    {
+      "id": "sides", "name": "Sides", "selection": "multi",
+      "items": [
+        {"id": "chips", "name": "Chips", "n": [540, 7, 73, 25, 7, 0, 3.5, 390]},
+        {"id": "side-guacamole", "name": "Side of Guacamole", "n": [230, 2, 8, 22, 6, 1, 3.5, 375]},
+        {"id": "side-queso", "name": "Side of Queso Blanco", "n": [240, 10, 8, 18, 0, 2, 10, 500]}
+      ]
+    }
+  ],
+  "presets": [
+    {"name": "Chicken Burrito Bowl", "entree": "bowl", "items": ["white-rice", "black-beans", "chicken", "fresh-tomato-salsa", "cheese", "romaine-lettuce"]},
+    {"name": "Steak Burrito Bowl", "entree": "bowl", "items": ["white-rice", "black-beans", "steak", "fresh-tomato-salsa", "cheese", "romaine-lettuce"]},
+    {"name": "Chicken Burrito", "entree": "burrito", "items": ["white-rice", "black-beans", "chicken", "fresh-tomato-salsa", "cheese", "sour-cream"]},
+    {"name": "Steak Burrito", "entree": "burrito", "items": ["white-rice", "pinto-beans", "steak", "fresh-tomato-salsa", "cheese", "sour-cream"]},
+    {"name": "Barbacoa Burrito Bowl", "entree": "bowl", "items": ["brown-rice", "black-beans", "barbacoa", "tomatillo-red-chili-salsa", "cheese"]},
+    {"name": "Carnitas Burrito Bowl", "entree": "bowl", "items": ["white-rice", "pinto-beans", "carnitas", "roasted-chili-corn-salsa", "sour-cream"]},
+    {"name": "Sofritas Bowl", "entree": "bowl", "items": ["brown-rice", "black-beans", "sofritas", "fajita-veggies", "fresh-tomato-salsa", "guacamole"]},
+    {"name": "High Protein Chicken Bowl (Double Chicken)", "entree": "bowl", "items": ["white-rice", "black-beans", "chicken", "chicken", "fajita-veggies", "fresh-tomato-salsa", "romaine-lettuce"]},
+    {"name": "Chicken Salad", "entree": "salad", "items": ["chicken", "black-beans", "fajita-veggies", "fresh-tomato-salsa", "chipotle-honey-vinaigrette"]},
+    {"name": "Chicken Quesadilla", "entree": "quesadilla", "items": ["chicken"]},
+    {"name": "Chicken Tacos", "entree": "tacos", "items": ["chicken", "fresh-tomato-salsa", "cheese", "romaine-lettuce"]},
+    {"name": "Lifestyle Bowl: Wholesome (Keto)", "entree": "salad", "items": ["carnitas", "fajita-veggies", "tomatillo-green-chili-salsa", "guacamole"]}
+  ]
+}
