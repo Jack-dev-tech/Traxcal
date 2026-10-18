@@ -13,7 +13,6 @@ final class FoodLogger {
     private let health = HealthKitService.shared
     /// Bumped on every change so dashboards can animate.
     private(set) var changeCount = 0
-    var lastLogged: FoodEntry?
 
     init(context: ModelContext, goals: GoalStore) {
         self.context = context
@@ -25,7 +24,6 @@ final class FoodLogger {
         let entry = FoodEntry(item: item, servings: servings, meal: meal, date: date, photo: photo)
         context.insert(entry)
         commit()
-        lastLogged = entry
         Task { await health.save(entry); try? context.save() }
         return entry
     }
@@ -76,8 +74,29 @@ final class FoodLogger {
         let pending = WaterStore.drainPendingHealthWrites()
         changeCount += 1
         guard !pending.isEmpty else { return }
-        // Negative amounts are undo taps; Health samples can't be negative, so skip those.
-        Task { for ml in pending where ml > 0 { await health.saveWater(milliliters: ml) } }
+        // Negative amounts are undo taps; Health samples can't be negative, so remove the last one instead.
+        Task {
+            for write in pending {
+                if write.milliliters > 0 {
+                    await health.saveWater(milliliters: write.milliliters, date: write.date)
+                } else {
+                    await health.removeLastWater(on: write.date)
+                }
+            }
+        }
+    }
+
+    /// Writes entries that never reached Apple Health: a failed save, or logged while Health was off.
+    func syncUnsyncedToHealth() {
+        guard health.isEnabled else { return }
+        var descriptor = FetchDescriptor<FoodEntry>(predicate: #Predicate { !$0.syncedToHealth })
+        descriptor.fetchLimit = 200
+        let pending = (try? context.fetch(descriptor)) ?? []
+        guard !pending.isEmpty else { return }
+        Task {
+            for entry in pending { await health.save(entry) }
+            try? context.save()
+        }
     }
 
     private func commit() {

@@ -14,9 +14,11 @@ struct TrendReport: Sendable {
     var goals: [NutrientKind: Double]
 
     var logged: [DaySummary] { days.filter(\.isLogged) }
+    /// Logged days that are over. Today is still in progress, so averaging it in drags every total down.
+    var complete: [DaySummary] { logged.filter { !Calendar.current.isDateInToday($0.date) } }
 
     func average(_ kind: NutrientKind, in subset: [DaySummary]? = nil) -> Double {
-        let set = subset ?? logged
+        let set = subset ?? complete
         guard !set.isEmpty else { return 0 }
         return set.map { $0.nutrients.value(kind) ?? 0 }.reduce(0, +) / Double(set.count)
     }
@@ -36,15 +38,16 @@ struct TrendReport: Sendable {
     /// Days within ±10% of the calorie goal.
     var onTargetDays: Int {
         let goal = goals[.calories] ?? 2000
-        return logged.filter { abs($0.nutrients.calories - goal) <= goal * 0.1 }.count
+        return complete.filter { abs($0.nutrients.calories - goal) <= goal * 0.1 }.count
     }
 
     /// Percent change between the most recent 7 logged days and the 7 before.
     func weekOverWeekChange(_ kind: NutrientKind) -> Double? {
         let sorted = days.sorted { $0.date < $1.date }
         guard sorted.count >= 14 else { return nil }
-        let recent = Array(sorted.suffix(7)).filter(\.isLogged)
-        let prior = Array(sorted.dropLast(7).suffix(7)).filter(\.isLogged)
+        let isComplete = { (d: DaySummary) in d.isLogged && !Calendar.current.isDateInToday(d.date) }
+        let recent = Array(sorted.suffix(7)).filter(isComplete)
+        let prior = Array(sorted.dropLast(7).suffix(7)).filter(isComplete)
         guard !recent.isEmpty, !prior.isEmpty else { return nil }
         let a = average(kind, in: recent), b = average(kind, in: prior)
         guard b > 0 else { return nil }
@@ -64,6 +67,9 @@ struct TrendReport: Sendable {
         var out: [Insight] = []
         guard !logged.isEmpty else {
             return [Insight(title: "Start your streak", detail: "Log your first meal to unlock trends and personalized insights.", tone: .neutral, symbol: "flag.checkered")]
+        }
+        guard !complete.isEmpty else {
+            return [Insight(title: "Day one underway", detail: "Keep logging today. Averages and trends start once your first full day is in.", tone: .positive, symbol: "flag.checkered")]
         }
         let calGoal = goals[.calories] ?? 2000
         let avgCal = average(.calories)
@@ -106,14 +112,16 @@ struct TrendReport: Sendable {
             .map { "\($0.title) \(Int(goals[$0] ?? $0.defaultGoal))\($0.unit)" }
             .joined(separator: ", ")
         let daysLine = days.sorted { $0.date < $1.date }.suffix(14).map { d in
-            d.isLogged
-                ? "\(d.date.formatted(.dateTime.weekday(.abbreviated).month().day())): \(Int(d.nutrients.calories)) kcal, P\(Int(d.nutrients.protein)) C\(Int(d.nutrients.carbs)) F\(Int(d.nutrients.fat)), fiber \(Int(d.nutrients.fiber ?? 0))g, sodium \(Int(d.nutrients.sodium ?? 0))mg, sugar \(Int(d.nutrients.sugar ?? 0))g"
-                : "\(d.date.formatted(.dateTime.weekday(.abbreviated).month().day())): not logged"
+            let label = d.date.formatted(.dateTime.weekday(.abbreviated).month().day())
+                + (Calendar.current.isDateInToday(d.date) ? " (today, in progress)" : "")
+            return d.isLogged
+                ? "\(label): \(Int(d.nutrients.calories)) kcal, P\(Int(d.nutrients.protein)) C\(Int(d.nutrients.carbs)) F\(Int(d.nutrients.fat)), fiber \(Int(d.nutrients.fiber ?? 0))g, sodium \(Int(d.nutrients.sodium ?? 0))mg, sugar \(Int(d.nutrients.sugar ?? 0))g"
+                : "\(label): not logged"
         }.joined(separator: "\n")
         return """
         Objective: \(profile.objective.title). Activity: \(profile.activity.title).
         Daily goals: \(goalsLine).
-        Logging streak: \(streak) days. On-target days: \(onTargetDays)/\(logged.count).
+        Logging streak: \(streak) days. On-target days: \(onTargetDays)/\(complete.count).
         Recent days:
         \(daysLine)
         """

@@ -30,8 +30,6 @@ final class AIRouter {
 
     var backend: AIBackend { didSet { save() } }
     var cloudConfigs: [CloudProvider: CloudProviderConfig] { didSet { save() } }
-    /// Whether photo scans for text-only models may use Vision labels as a fallback.
-    var allowLabelFallback = true
 
     private init() {
         let d = UserDefaults.standard
@@ -86,12 +84,11 @@ final class AIRouter {
         let text: String
         if provider.supportsVision {
             text = try await provider.complete(system: AIPrompts.foodSystem, user: AIPrompts.photoUser(hint: hint), imageJPEG: jpeg, wantsJSON: true)
-        } else if allowLabelFallback {
+        } else {
+            // Text-only model: describe the photo with Vision's on-device labels instead.
             let labels = try await FoodImageClassifier.labels(for: jpeg)
             guard !labels.isEmpty || !(hint ?? "").isEmpty else { throw AIError.visionUnsupported(provider.displayName) }
             text = try await provider.complete(system: AIPrompts.foodSystem, user: AIPrompts.labelsUser(labels: labels, hint: hint), imageJPEG: nil, wantsJSON: true)
-        } else {
-            throw AIError.visionUnsupported(provider.displayName)
         }
         let analysis = try AIJSON.decode(FoodAnalysis.self, from: text)
         guard !analysis.items.isEmpty else { throw AIError.badResponse("No foods were recognized.") }

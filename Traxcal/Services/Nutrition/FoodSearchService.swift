@@ -27,13 +27,14 @@ final class FoodSearchService {
             return
         }
         // Bundled results appear instantly; live results merge in when they arrive.
-        results = bundled.search(q)
+        let local = bundled.search(q)
+        results = local
         isSearching = useLiveSources()
         guard useLiveSources() else { return }
         task = Task { [weak self] in
             try? await Task.sleep(for: .milliseconds(350))
             guard !Task.isCancelled, let self else { return }
-            let merged = await Self.search(q, usdaKey: self.usdaKey(), bundled: self.bundled)
+            let merged = await Self.search(q, usdaKey: self.usdaKey(), local: local)
             guard !Task.isCancelled else { return }
             self.results = merged.items
             self.liveUnavailable = merged.liveFailed
@@ -46,10 +47,10 @@ final class FoodSearchService {
         var liveFailed: Bool
     }
 
-    nonisolated static func search(_ query: String, usdaKey: String, bundled: BundledFoodProvider) async -> Merged {
+    /// `local` is the bundled search the caller already ran for the instant results.
+    nonisolated static func search(_ query: String, usdaKey: String, local: [FoodItem]) async -> Merged {
         async let usda = timed { try await USDAFoodDataProvider(apiKey: usdaKey).search(query) }
         async let off = timed { try await OpenFoodFactsProvider().search(query) }
-        let local = bundled.search(query)
         let (usdaItems, offItems) = await (usda, off)
         let live = (usdaItems ?? []) + (offItems ?? [])
         return Merged(items: rank(query: query, live: live, bundled: local), liveFailed: usdaItems == nil && offItems == nil)

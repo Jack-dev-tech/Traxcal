@@ -158,6 +158,14 @@ struct AIParsingTests {
         #expect(analysis.items[0].portion == "1 serving")
     }
 
+    @Test func numberStringsUseFirstNumber() throws {
+        let json = #"{"items":[{"name":"Toast","calories":"150-200","protein":"5 g","carbs":"1,020","fat":"2"}]}"#
+        let n = try AIJSON.decode(FoodAnalysis.self, from: json).items[0].nutrients
+        #expect(n.protein == 5)
+        #expect(n.carbs == 1020)
+        #expect(n.fat == 2)
+    }
+
     @Test func insightsDecodeWithDefaults() throws {
         struct Payload: Decodable { var insights: [Insight] }
         let json = #"{"insights":[{"title":"Nice","detail":"Good job"}]}"#
@@ -181,9 +189,23 @@ struct TrendsTests {
     }
 
     @Test func averagesOnlyLoggedDays() {
-        let report = TrendReport(days: [day(2, 1800), day(1, 0), day(0, 2200)], goals: [:])
+        let report = TrendReport(days: [day(3, 1800), day(2, 0), day(1, 2200)], goals: [:])
         #expect(report.average(.calories) == 2000)
         #expect(report.onTargetDays == 2)
+    }
+
+    @Test func todayInProgressIsNotAveraged() {
+        let report = TrendReport(days: [day(1, 2000), day(0, 400)], goals: [.calories: 2000])
+        #expect(report.average(.calories) == 2000)
+        #expect(report.ruleBasedInsights().first?.title == "Right on target")
+    }
+
+    @Test func budgetOnlyAddsExerciseBeyondActivityLevel() {
+        var profile = UserProfile()
+        profile.activity = .moderate
+        let alreadyCounted = profile.tdee - profile.bmr * 1.2
+        #expect(profile.extraBurn(activeEnergy: alreadyCounted - 100) == 0)
+        #expect(abs(profile.extraBurn(activeEnergy: alreadyCounted + 250) - 250) < 0.001)
     }
 
     @Test func ruleInsightsFlagProteinGap() {

@@ -26,7 +26,7 @@ final class InsightService {
         }
 
         let router = AIRouter.shared
-        guard router.isConfigured, !report.logged.isEmpty else {
+        guard router.isConfigured, !report.complete.isEmpty else {
             insights = fallback
             source = "Smart rules"
             return

@@ -29,9 +29,6 @@ enum FoodSource: String, Codable, CaseIterable, Sendable {
         case .barcode: "barcode.viewfinder"
         }
     }
-
-    /// Live database results win ties over bundled data.
-    var isLive: Bool { self == .usda || self == .openFoodFacts || self == .barcode }
 }
 
 /// A selectable portion. `multiplier` is relative to the item's base serving.

@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(GoalStore.self) private var goals
     @Environment(HealthKitService.self) private var health
+    @Environment(FoodLogger.self) private var logger
     @Environment(AIRouter.self) private var ai
     @AppStorage("search.live") private var liveSearch = true
     @State private var usdaKey = KeychainStore.get(.usdaAPIKey) ?? ""
@@ -29,7 +30,7 @@ struct SettingsView: View {
                         Toggle(isOn: Binding(
                             get: { health.isEnabled },
                             set: { on in
-                                if on { Task { await health.requestAuthorization() } } else { health.isEnabled = false }
+                                if on { Task { if await health.requestAuthorization() { logger.syncUnsyncedToHealth() } } } else { health.isEnabled = false }
                             }
                         )) {
                             row("Sync with Health", "Food, macros, micros & water", "heart.fill", .pink)
@@ -51,7 +52,7 @@ struct SettingsView: View {
                     }
                     SecureField("USDA API key (optional)", text: $usdaKey)
                         .onSubmit { KeychainStore.set(usdaKey, for: .usdaAPIKey) }
-                        .onChange(of: usdaKey) { _, v in KeychainStore.set(v, for: .usdaAPIKey) }
+                        .onDisappear { KeychainStore.set(usdaKey, for: .usdaAPIKey) }
                     Link("Get a free USDA key", destination: URL(string: "https://fdc.nal.usda.gov/api-key-signup")!)
                 } header: {
                     Text("Food Search")

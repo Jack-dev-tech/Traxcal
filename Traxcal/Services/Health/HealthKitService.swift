@@ -90,9 +90,10 @@ final class HealthKitService {
                 metadata: [HKMetadataKeyFoodType: entry.displayName]
             ))
         }
-        guard !samples.isEmpty else { return }
-        // A replaced correlation leaves its old child samples; remove them first on edits.
+        // A replaced correlation leaves its old child samples; remove them first on edits,
+        // including edits that zero everything out and so have nothing new to write.
         if entry.revision > 1 { await delete(entryID: entry.id) }
+        guard !samples.isEmpty else { return }
         let correlation = HKCorrelation(
             type: HKCorrelationType(.food), start: entry.date, end: entry.date,
             objects: samples, metadata: metadata
@@ -129,6 +130,21 @@ final class HealthKitService {
             start: date, end: date
         )
         try? await store.save(sample)
+    }
+
+    /// Undo for a water tap: deletes Traxcal's most recent water sample on that day.
+    func removeLastWater(on date: Date) async {
+        guard isEnabled, Self.isAvailable else { return }
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
+            HKQuery.predicateForSamples(withStart: date.startOfDay, end: date.endOfDay),
+            HKQuery.predicateForObjects(from: HKSource.default()),
+        ])
+        let descriptor = HKSampleQueryDescriptor(
+            predicates: [.quantitySample(type: HKQuantityType(.dietaryWater), predicate: predicate)],
+            sortDescriptors: [SortDescriptor(\.endDate, order: .reverse)], limit: 1
+        )
+        guard let last = try? await descriptor.result(for: store).first else { return }
+        try? await store.delete(last)
     }
 
     // MARK: Reading

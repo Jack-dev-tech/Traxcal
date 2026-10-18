@@ -56,7 +56,7 @@ struct TrendsView: View {
             tile("Avg Protein", "\(Int(report.average(.protein)))", "g / day", "bolt.heart.fill", Palette.protein,
                  change: report.weekOverWeekChange(.protein))
             tile("Streak", "\(report.streak)", "days logged", "calendar", Palette.carbs, change: nil)
-            tile("On Target", "\(report.onTargetDays)/\(report.logged.count)", "days within 10%", "target", Palette.fat, change: nil)
+            tile("On Target", "\(report.onTargetDays)/\(report.complete.count)", "days within 10%", "target", Palette.fat, change: nil)
         }
     }
 
@@ -204,7 +204,7 @@ struct TrendsView: View {
                     }
             }
             .frame(height: 180)
-            Text("Average \(report.average(nutrient).formatted(.number.precision(.fractionLength(0...1)))) \(nutrient.unit) per logged day")
+            Text("Average \(report.average(nutrient).formatted(.number.precision(.fractionLength(0...1)))) \(nutrient.unit) per full day")
                 .font(.caption).foregroundStyle(.secondary)
         }
         .glassCard()

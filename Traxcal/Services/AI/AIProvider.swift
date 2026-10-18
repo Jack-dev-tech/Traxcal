@@ -29,9 +29,10 @@ struct FoodAnalysis: Codable, Sendable, Equatable {
             let c = try decoder.container(keyedBy: CodingKeys.self)
             func num(_ key: CodingKeys) -> Double? {
                 if let d = try? c.decode(Double.self, forKey: key) { return d }
-                if let s = try? c.decode(String.self, forKey: key) {
-                    let cleaned = s.filter { $0.isNumber || $0 == "." }
-                    return Double(cleaned)
+                // Take the first number only: "20-25" → 20, "1,200 kcal" → 1200.
+                if let s = try? c.decode(String.self, forKey: key),
+                   let match = s.replacingOccurrences(of: ",", with: "").firstMatch(of: #/\d+(\.\d+)?/#) {
+                    return Double(match.output.0)
                 }
                 return nil
             }

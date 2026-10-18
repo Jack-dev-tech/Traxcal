@@ -87,16 +87,27 @@ enum WaterStore {
             snapshot.waterML = next
             WidgetSnapshotStore.save(snapshot)
         }
-        // Remember widget-originated additions so the app can mirror them to Apple Health.
-        var pending = SharedConfig.defaults.array(forKey: "water.pendingHealth") as? [Double] ?? []
-        pending.append(milliliters)
-        SharedConfig.defaults.set(pending, forKey: "water.pendingHealth")
+        // Remember additions (with when they happened) so the app can mirror them to Apple Health,
+        // even when they came from the widget while the app was closed.
+        var pending = SharedConfig.defaults.array(forKey: pendingKey) as? [[String: Double]] ?? []
+        pending.append(["ml": milliliters, "at": Date.now.timeIntervalSince1970])
+        SharedConfig.defaults.set(pending, forKey: pendingKey)
     }
 
-    /// Returns and clears water additions that have not been written to Apple Health yet.
-    static func drainPendingHealthWrites() -> [Double] {
-        let pending = SharedConfig.defaults.array(forKey: "water.pendingHealth") as? [Double] ?? []
-        SharedConfig.defaults.removeObject(forKey: "water.pendingHealth")
-        return pending
+    struct PendingWrite {
+        var milliliters: Double
+        var date: Date
+    }
+
+    private static let pendingKey = "water.pendingHealth.v2"
+
+    /// Returns and clears water changes that have not been written to Apple Health yet, oldest first.
+    static func drainPendingHealthWrites() -> [PendingWrite] {
+        let pending = SharedConfig.defaults.array(forKey: pendingKey) as? [[String: Double]] ?? []
+        SharedConfig.defaults.removeObject(forKey: pendingKey)
+        return pending.compactMap { row in
+            guard let ml = row["ml"], let at = row["at"] else { return nil }
+            return PendingWrite(milliliters: ml, date: Date(timeIntervalSince1970: at))
+        }
     }
 }

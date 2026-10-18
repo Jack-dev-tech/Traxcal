@@ -66,6 +66,12 @@ struct UserProfile: Codable, Equatable {
 
     var tdee: Double { bmr * activity.multiplier }
 
+    /// Active energy beyond what the activity level already counts in TDEE.
+    /// The 1.2 sedentary factor covers daily life; everything above it is exercise the goal already includes.
+    func extraBurn(activeEnergy: Double) -> Double {
+        max(0, activeEnergy - (tdee - bmr * 1.2))
+    }
+
     /// Suggested goals for this profile: protein ~1.8 g/kg (2.2 when gaining), fat 28% of calories.
     func suggestedGoals() -> [NutrientKind: Double] {
         let calories = max((tdee + objective.calorieDelta).rounded(), 1200)

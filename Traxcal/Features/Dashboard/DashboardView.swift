@@ -23,7 +23,10 @@ struct DashboardView: View {
                 VStack(spacing: 18) {
                     header(streak: logger.report(days: 30).streak)
                         .appearAnimation(index: 0)
-                    CalorieHeroCard(eaten: totals.calories, goal: goals.goal(.calories), burned: health.activeEnergyToday)
+                    CalorieHeroCard(
+                        eaten: totals.calories, goal: goals.goal(.calories), burned: health.activeEnergyToday,
+                        bonus: goals.profile.extraBurn(activeEnergy: health.activeEnergyToday)
+                    )
                         .appearAnimation(index: 1)
                     macrosCard(totals).appearAnimation(index: 2)
                     WaterCard(goal: goals.waterGoalML).appearAnimation(index: 3)
@@ -192,12 +195,14 @@ struct CalorieHeroCard: View {
     var eaten: Double
     var goal: Double
     var burned: Double
+    /// The part of `burned` that adds to the budget (the goal already includes planned activity).
+    var bonus: Double
 
     var body: some View {
-        let remaining = goal + burned - eaten
+        let remaining = goal + bonus - eaten
         HStack(spacing: 20) {
             ZStack {
-                RingGauge(progress: goal > 0 ? eaten / (goal + burned) : 0, lineWidth: 20)
+                RingGauge(progress: goal > 0 ? eaten / (goal + bonus) : 0, lineWidth: 20)
                 VStack(spacing: 0) {
                     Text("\(Int(abs(remaining).rounded()))")
                         .font(.display(38))

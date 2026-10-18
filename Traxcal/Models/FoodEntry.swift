@@ -58,12 +58,7 @@ final class FoodEntry {
 
     var total: Nutrients { perServing.scaled(by: servings) }
 
-    var displayName: String {
-        if let brand, !brand.isEmpty, !name.localizedCaseInsensitiveContains(brand) {
-            return "\(brand) \(name)"
-        }
-        return name
-    }
+    var displayName: String { asFoodItem.displayName }
 
     /// Re-create a search item from this entry (used for "log again" and favorites).
     var asFoodItem: FoodItem {
