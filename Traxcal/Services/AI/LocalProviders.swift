@@ -2,6 +2,7 @@ import CoreImage
 import Foundation
 import FoundationModels
 import HuggingFace
+import MLX
 import MLXHuggingFace
 import MLXLLM
 import MLXLMCommon
@@ -18,6 +19,11 @@ actor MLXModelHost {
 
     private var loadedID: String?
     private var container: ModelContainer?
+
+    private init() {
+        // MLX keeps freed GPU buffers for reuse by default; on iPhone that cache alone can push the app past its memory limit.
+        MLX.Memory.cacheLimit = 20 * 1024 * 1024
+    }
 
     func container(for model: LocalModel, progress: @Sendable @escaping (Progress) -> Void = { _ in }) async throws -> ModelContainer {
         if let container, loadedID == model.id { return container }
@@ -54,10 +60,20 @@ actor MLXModelHost {
             container, instructions: system,
             generateParameters: GenerateParameters(maxTokens: 900, temperature: 0.3)
         )
-        if let imageJPEG, model.vision, let ciImage = CIImage(data: imageJPEG) {
-            return try await session.respond(to: user, image: .ciImage(ciImage))
+        do {
+            // Without a scoped handler MLX calls fatalError on any error (e.g. a failed GPU allocation).
+            return try await withError {
+                if let imageJPEG, model.vision, let ciImage = CIImage(data: imageJPEG) {
+                    return try await session.respond(to: user, image: .ciImage(ciImage))
+                }
+                return try await session.respond(to: user)
+            }
+        } catch {
+            // Arrays from a failed evaluation are unusable; drop the model so the next try starts clean.
+            unload()
+            MLX.Memory.clearCache()
+            throw AIError.unavailable("The on-device model failed (\(error.localizedDescription)). It may have run out of memory. Try a smaller model.")
         }
-        return try await session.respond(to: user)
     }
 }
 
